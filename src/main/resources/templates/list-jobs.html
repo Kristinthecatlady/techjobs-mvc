@@ -9,9 +9,17 @@
 <div class="container body-content">
 
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+    <h1 th:text="${count !=null}? ${count} + 'Result(s)' : ''"></h1>
+    <span th:each="job : ${jobs}">
+        <table class="job-listing">
+            <tr th:each="item : ${job}">
+                <th th:text="${#strings.capitalizeWords(item.key)} + ':'"></th>
+            <td th:text="${item.value}"></td>
+            </tr>
+        </table>
 
-    <!-- TODO #3 - Use the same list display from search.html -->
-
+    </span>
+    
 </div>
 
 </body>
